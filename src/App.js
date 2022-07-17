@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import List from './List';
 import Alert from './Alert';
+import { FaLastfmSquare } from 'react-icons/fa';
 
 function App() {
   const [name, setName] = useState('');
@@ -19,6 +20,18 @@ function App() {
       showAlert(true, 'danger', 'enter value');
     } else if (name && isEditing) {
       //editting
+      setList(
+        list.map((item) => {
+          if (item.id === editID) {
+            return { ...item, title: name };
+          }
+          return item;
+        })
+      );
+      setName('');
+      setEditID(null);
+      setIsEditing(false);
+      showAlert(true, 'success', 'Edited');
     } else {
       showAlert(true, 'success', 'item added');
       const newItem = { id: new Date().getTime().toString(), title: name };
@@ -39,7 +52,7 @@ function App() {
     setList(list.filter((item) => item.id !== id));
   };
   const editItem = (id) => {
-    const specificItem = list.find((item) => item.id == item);
+    const specificItem = list.find((item) => item.id === id);
     setIsEditing(true);
     setEditID(id);
     setName(specificItem.title);
