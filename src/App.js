@@ -3,9 +3,18 @@ import List from './List';
 import Alert from './Alert';
 import { FaLastfmSquare } from 'react-icons/fa';
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem('list');
+  if (list) {
+    return JSON.parse(localStorage.getItem('list'));
+  } else {
+    return [];
+  }
+};
+
 function App() {
   const [name, setName] = useState('');
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
   const [alert, setAlert] = useState({
@@ -39,6 +48,9 @@ function App() {
       setName('');
     }
   };
+  useEffect(() => {
+    localStorage.setItem('list', JSON.stringify(list));
+  }, [list]);
 
   const showAlert = (show = false, type = '', msg = '') => {
     setAlert({ show, type, msg });
