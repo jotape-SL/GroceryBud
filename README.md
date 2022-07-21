@@ -30,7 +30,6 @@ $npm start
 
 - **[Grocery Bud](https://grocery-bud-alpha.vercel.app/)**
 
----
 
 ## 🛠 Tecnologias
 
