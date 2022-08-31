@@ -1,6 +1,12 @@
+
+<div align="center">
+
 # GroceryBud
 
 Cria uma lista de itens e os salva no Local Storage, possibilitando, também, o usuário excluir ou editar os itens. Feito como treino de React.
+
+<img src="https://user-images.githubusercontent.com/102804110/187774516-c29a9200-174a-48ae-ad0a-1e7d9de60bca.png" width="750"/>
+</div>
 
 ## 🚀 Como executar o projeto
 
